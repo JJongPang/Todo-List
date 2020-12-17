@@ -1,34 +1,48 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 
 const AuthTemplateBlock = styled.div`
-  h3 {
-    margin: 0;
-    color: ${palette.gray};
-    margin-bottom: 1rem;
-  }
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: ${palette.gray[2]};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-const StyledInput = styled.input`
-  font-size: 1rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[5]};
-  padding-bottom: 0.5rem;
-  outline: none;
-  width: 100%;
-  &:focus {
-    color: $oc-teal-7;
-    border-bottom: 1px solid ${palette.gray[7]};
+const WhiteBox = styled.div`
+  .logo-area {
+    display: block;
+    padding-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
   }
-  & + & {
-    margin-top: 1rem;
-  }
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
+  padding: 2rem;
+  width: 360px;
+  background: white;
+  border-radius: 2px;
 `;
 
 const AuthTemplate = ({ children }) => {
   console.log(children);
-  return <AuthTemplateBlock>{children}</AuthTemplateBlock>;
+  return (
+    <AuthTemplateBlock>
+      <WhiteBox>
+        <div className="logo-area">
+          <Link to="/">BOOKMARK</Link>
+        </div>
+        {children}
+      </WhiteBox>
+    </AuthTemplateBlock>
+  );
 };
 
 export default AuthTemplate;
