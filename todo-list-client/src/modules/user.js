@@ -15,6 +15,12 @@ export const check = createAction(CHECK);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
 
+function checkFailureSaga() {
+  try {
+    localStorage.removeItem('user'); // localStorage에서 user 제거
+  }
+}
+
 export function* userSaga() {
   yield takeLatest(CHECK, checkSaga);
 }

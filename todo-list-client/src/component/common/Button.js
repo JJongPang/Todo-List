@@ -41,13 +41,13 @@ const StyledButton = styled.button`
   ${buttonStyle}
 `;
 
-const StyleLink = styled(Link)`
+const StyledLink = styled(Link)`
   ${buttonStyle}
 `;
 
 const Button = (props) => {
   return props.to ? (
-    <StyleLink {...props} cyan={props.cyan ? 1 : 0} />
+    <StyledLink {...props} cyan={props.cyan ? 1 : 0} />
   ) : (
     <StyledButton {...props} />
   );
