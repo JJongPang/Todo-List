@@ -40,14 +40,14 @@ const Footer = styled.div`
   }
 `;
 
+const ButtonWithMarginTop = styled(Button)`
+  margin-top: 1rem;
+`;
+
 const textMap = {
   login: '로그인',
   register: '회원가입',
 };
-
-const ButtonWithMarginTop = styled(Button)`
-  margin-top: 1rem;
-`;
 
 const AuthForm = ({ type, form, onChange, onSubmit }) => {
   const text = textMap[type];
