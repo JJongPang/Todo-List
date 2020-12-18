@@ -1,14 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthForm from '../../component/auth/AuthForm';
+import { check } from '../../modules/user';
 import { changeField, initializeForm, register } from '../../modules/auth';
+import { withRouter } from 'react-router-dom';
 
-const RegisterForm = () => {
+const RegisterForm = ({ history }) => {
   const dispatch = useDispatch();
-  const { form, auth, authError } = useSelector(({ auth }) => ({
+  const [error, setError] = useState();
+
+  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
     form: auth.register,
     auth: auth.auth,
     authError: auth.authError,
+    user: user.user,
   }));
 
   const onChange = (event) => {
@@ -44,8 +49,17 @@ const RegisterForm = () => {
     if (auth) {
       console.log('회원가입 성공');
       console.log(auth);
+      dispatch(check());
     }
-  }, [auth, authError]);
+  }, [auth, authError, dispatch]);
+
+  useEffect(() => {
+    if (user) {
+      console.log('check API 확인');
+      console.log(user);
+      history.push('/');
+    }
+  }, [user, history]);
 
   return (
     <AuthForm
@@ -57,4 +71,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default withRouter(RegisterForm);
