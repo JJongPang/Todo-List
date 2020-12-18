@@ -9,13 +9,14 @@ import { takeLatest } from 'redux-saga/effects';
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
-const [REGISTER, REGISTER_SUCCESS, REIGSTER_FAILURE] = createRequestActionTypes(
+const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
   'auth/REGISTER',
 );
 
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN',
 );
+
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({
@@ -37,11 +38,11 @@ export const login = createAction(LOGIN, ({ username, password }) => ({
   password,
 }));
 
-const registSaga = createRequestSaga(REGISTER, authAPI.register);
+const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 
 export function* authSaga() {
-  yield takeLatest(REGISTER, registSaga);
+  yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
 }
 
@@ -75,7 +76,7 @@ const auth = handleActions(
       authError: null,
       auth,
     }),
-    [REIGSTER_FAILURE]: (state, { payload: error }) => ({
+    [REGISTER_FAILURE]: (state, { payload: error }) => ({
       ...state,
       authError: error,
     }),

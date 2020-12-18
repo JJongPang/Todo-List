@@ -15,6 +15,7 @@ const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
+
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
