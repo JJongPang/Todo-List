@@ -25,7 +25,6 @@ router.use('/api', api.routes());
 
 app.use(bodyParser());
 app.use(jwtMiddleware);
-
 app.use(router.routes()).use(router.allowedMethods);
 
 const port = PORT || 4000;
