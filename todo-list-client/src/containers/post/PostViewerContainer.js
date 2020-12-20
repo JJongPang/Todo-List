@@ -10,7 +10,7 @@ const PostViewerContainer = ({ match }) => {
   const { post, error, loading } = useSelector(({ post, loading }) => ({
     post: post.post,
     error: post.error,
-    loading: post.loading,
+    loading: loading['post/READ_POST'],
   }));
 
   useEffect(() => {
