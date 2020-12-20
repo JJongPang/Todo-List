@@ -12,7 +12,7 @@ const CategoryList = () => {
       <Button to="/category">추가</Button>
       <ul className={styles.list}>
         {items.map((item) => (
-          <CategoryItem item={item} />
+          <CategoryItem key={item} item={item} />
         ))}
       </ul>
     </section>

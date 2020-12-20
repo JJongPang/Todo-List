@@ -31,7 +31,7 @@ const WriteActionButtonContainer = ({ history }) => {
   useEffect(() => {
     if (post) {
       const { _id, user } = post;
-      history.pusy(`/@${user.username}/${_id}`);
+      history.push(`/@${user.username}/${_id}`);
     }
     if (postError) {
       console.log(postError);
