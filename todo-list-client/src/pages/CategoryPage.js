@@ -1,11 +1,13 @@
 import React from 'react';
-import CategoryForm from '../component/category/category-form/CategoryForm';
-import CategoryTemplate from '../component/category/category-form/CategoryTemplate';
+import CategoryTemplate from '../component/category/CategoryTemplate';
+import CategoryContainer from '../containers/category/CategoryContainer';
+import CategoryWriteActionButtonContainer from '../containers/category/CategoryWriteActionButtonContainer';
 
 const CategoryPage = () => {
   return (
     <CategoryTemplate>
-      <CategoryForm />
+      <CategoryContainer />
+      <CategoryWriteActionButtonContainer />
     </CategoryTemplate>
   );
 };

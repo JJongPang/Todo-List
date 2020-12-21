@@ -7,6 +7,6 @@ const api = new Router();
 
 api.use('/auth', auth.routes());
 api.use('/posts', posts.routes());
-api.use('/categorys', categorys.routes());
+api.use('/category', categorys.routes());
 
 export default api;
