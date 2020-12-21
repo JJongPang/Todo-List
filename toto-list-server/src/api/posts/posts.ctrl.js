@@ -1,6 +1,7 @@
 import Post from '../../models/post';
 import mongoose from 'mongoose';
 import Joi from '@hapi/joi';
+import sanitize-html from 'sanitize-html'
 
 const { ObjectId } = mongoose.Types;
 
